@@ -107,3 +107,4 @@ if __name__ == '__main__':
 	print 'Converted from {} to .coe'.format(filetype)
 	print 'Size: h:{} pixels w:{} pixels'.format(height,width)
 	print 'COE file is 32 bits wide and {} bits deep'.format(line_cnt)
+	print 'Total addresses: {}'.format(32*line_cnt)
