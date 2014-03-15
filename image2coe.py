@@ -16,8 +16,10 @@ Description:
 	http://www.lbebooks.com/downloads/exportal/VHDL_NEXYS_Example24.pdf
 
 TO USE:
-	The easiest way to use this script is to copy it to the directory that
-	contains the image that you want to convert. Then open the script in a 
+	The easiest way to use this script is to copy this module to the directory
+	that contains the image that you want to convert. Then  start and instance 
+	or your terminal emulator or command prompt in that same directory. Run this 
+	module with the python command from the terminal emulator or command prompt
 	text editor and change the contents of the string named ImageName. 
 	Then run the script from a command line.
 '''
@@ -26,13 +28,15 @@ import sys
 from PIL import Image
 
 
-# -----------------------------------------------------------------------------
-# 						NAME OF IMAGE TO OPEN:
-ImageName = 'panda.bmp'
-#------------------------------------------------------------------------------
 
-if __name__ == '__main__':
 
+def Convert (ImageName):
+	"""
+		This converts the given image into a Xilinx Coefficients (.coe) file.
+		Pass it the name of the image including the file suffix.
+		The file must reside in the directory from which this function is called
+		or provide the absolute path. 
+	"""
 	# Open image
 	img 	= Image.open(ImageName)
 	# Verify that the image is in the 'RGB' mode, every pixel is described by 
@@ -108,3 +112,9 @@ if __name__ == '__main__':
 	print 'Size: h:{} pixels w:{} pixels'.format(height,width)
 	print 'COE file is 32 bits wide and {} bits deep'.format(line_cnt)
 	print 'Total addresses: {}'.format(32*(line_cnt+1))
+
+
+
+if __name__ == '__main__':
+	ImageName = raw_input('Enter the name of your image: ')
+	Convert(ImageName)
