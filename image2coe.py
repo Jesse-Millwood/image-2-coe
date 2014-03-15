@@ -25,7 +25,7 @@ TO USE:
 '''
 # Imported Standard Modules
 import sys
-from PIL import Image
+from PIL import Image 
 
 
 
